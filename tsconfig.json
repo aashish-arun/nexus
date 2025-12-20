@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "app/layout.jsx", "app/components/FunProfile.jsx", "app/components/Header.jsx", "app/components/Question.jsx", "app/components/PortfolioSections.jsx", "app/page.jsx"  ],
   "exclude": ["node_modules"]
 }
