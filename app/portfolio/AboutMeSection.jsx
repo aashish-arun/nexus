@@ -1,5 +1,5 @@
 'use client'
-
+// who what how skiils 
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Twitter } from 'lucide-react'
 

@@ -25,7 +25,7 @@ export default function TechStackSection() {
   const categories = ['All', ...Object.keys(techCategories)]
 
   return (
-    <section id="techstack" className="py-24 px-6 text-center bg-gray-900 text-white">
+    <section id="techstack" className="py-24 px-6 text-center bg-black text-white">
       <motion.h2
         className="text-4xl font-bold mb-8"
         initial={{ opacity: 0, y: 20 }}
