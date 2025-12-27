@@ -6,10 +6,10 @@ import { useRouter, usePathname } from 'next/navigation'
 export default function Header() {
   const pathname = usePathname()
   const router = useRouter()
-  const isPortfolio = pathname.startsWith('/portfolio')
+  const isPortfolio = pathname === '/' || pathname.startsWith('/portfolio')
 
   const toggleMode = () => {
-    router.push(isPortfolio ? '/website' : '/portfolio')
+    router.push(isPortfolio ? '/website' : '/')
   }
 
   const scrollToSection = (id) => {
@@ -28,25 +28,37 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <span
-          onClick={() => scrollToSection('hero')}
+          onClick={() => isPortfolio && scrollToSection('hero')}
           className="font-bold text-lg tracking-wide cursor-pointer hover:text-blue-400 transition-colors"
         >
           MyPortfolio
         </span>
 
-        {/* Navigation */}
+        {/* Navigation (only on portfolio) */}
         {isPortfolio && (
           <nav className="hidden md:flex gap-8 text-sm text-gray-300">
-            <button onClick={() => scrollToSection('about')} className="hover:text-white transition">
+            <button
+              onClick={() => scrollToSection('about')}
+              className="hover:text-white transition"
+            >
               About Me
             </button>
-            <button onClick={() => scrollToSection('techstack')} className="hover:text-white transition">
+            <button
+              onClick={() => scrollToSection('techstack')}
+              className="hover:text-white transition"
+            >
               Tech Stack
             </button>
-            <button onClick={() => scrollToSection('projects')} className="hover:text-white transition">
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="hover:text-white transition"
+            >
               Projects
             </button>
-            <button onClick={() => scrollToSection('timeline')} className="hover:text-white transition">
+            <button
+              onClick={() => scrollToSection('timeline')}
+              className="hover:text-white transition"
+            >
               Timeline
             </button>
           </nav>
@@ -63,7 +75,7 @@ export default function Header() {
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
             className="absolute top-1 bottom-1 w-1/2 rounded-full bg-black shadow-md"
             style={{
-              left: isPortfolio ? '0%' : '50%', // stays inside bounds
+              left: isPortfolio ? '0%' : '50%',
             }}
           />
 

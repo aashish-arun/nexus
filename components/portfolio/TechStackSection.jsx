@@ -2,30 +2,24 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-
-const techCategories = {
-  Frontend: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'React Native', 'Tailwind CSS'],
-  Backend: ['Java', 'C#', 'Python', 'Oracle APEX', 'Firebase', 'Node.js'],
-  Database: ['MySQL', 'Oracle Database', 'SQL', 'PL/SQL'],
-  DevOps: ['Git', 'GitHub', 'Docker'],
-  Design: ['Figma', 'Software Ideas Modular'],
-  OS: ['Windows', 'Windows Server', 'Linux', 'Linux Server'],
-}
-
-// Flatten all tech for "All" filter
-const allTech = Object.values(techCategories).flat()
+import { techCategories, allTech } from '@/data/techStack'
 
 export default function TechStackSection() {
   const [selectedCategory, setSelectedCategory] = useState('All')
 
-  // Determine which techs to show
   const techToShow =
-    selectedCategory === 'All' ? allTech : techCategories[selectedCategory]
+    selectedCategory === 'All'
+      ? allTech
+      : techCategories[selectedCategory]
 
   const categories = ['All', ...Object.keys(techCategories)]
 
   return (
-    <section id="techstack" className="py-24 px-6 text-center bg-black text-white">
+    <section
+      id="techstack"
+      className="py-24 px-6 text-center bg-gray-950 text-white"
+    >
+      {/* Section Title */}
       <motion.h2
         className="text-4xl font-bold mb-8"
         initial={{ opacity: 0, y: 20 }}
@@ -41,10 +35,10 @@ export default function TechStackSection() {
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-4 py-2 rounded-full font-medium transition-colors ${
+            className={`px-5 py-2 rounded-full font-medium text-sm sm:text-base transition-colors duration-300 ${
               selectedCategory === cat
-                ? 'bg-white text-gray-900'
-                : 'bg-white/10 hover:bg-white/20'
+                ? 'bg-blue-600 text-white shadow-lg'
+                : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
           >
             {cat}
@@ -60,7 +54,7 @@ export default function TechStackSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}
-            className="px-5 py-3 rounded-xl bg-white/10 border border-white/20 backdrop-blur hover:scale-105 hover:bg-white/20 transition-all duration-300"
+            className="px-5 py-3 rounded-xl bg-gray-800/50 border border-gray-700 backdrop-blur-sm hover:scale-105 hover:bg-blue-600 hover:text-white transition-all duration-300 cursor-default"
           >
             {item}
           </motion.div>

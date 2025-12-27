@@ -1,11 +1,12 @@
 'use client'
-// who what how skiils 
+
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Twitter } from 'lucide-react'
 
 export default function AboutMeSection() {
   return (
-    <section id="hero" className="h-screen flex flex-col justify-center items-center text-center px-6">
+    <section id="about" className="h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-950 text-white">
+      
       {/* Hero Title */}
       <motion.h1 
         className="text-6xl sm:text-7xl font-bold mb-4"
@@ -26,12 +27,29 @@ export default function AboutMeSection() {
         I build modern web applications and love exploring new technologies.
       </motion.p>
 
+      {/* Skills / Tags */}
+      <motion.div 
+        className="flex flex-wrap justify-center gap-4 mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.8 }}
+      >
+        {['JavaScript', 'React', 'Next.js', 'Node.js', 'Firebase', 'Tailwind CSS'].map(skill => (
+          <span 
+            key={skill} 
+            className="bg-gray-800 px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:bg-blue-600 transition-colors"
+          >
+            {skill}
+          </span>
+        ))}
+      </motion.div>
+
       {/* Social Icons */}
       <motion.div
         className="flex justify-center gap-6 text-gray-400 mt-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.8 }}
+        transition={{ delay: 1, duration: 0.8 }}
       >
         <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
           <Github size={28} />
