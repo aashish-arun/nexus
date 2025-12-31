@@ -21,6 +21,7 @@ export const techCategories = {
     'Oracle Database',
     'SQL',
     'PL/SQL',
+    'HeidiSQL',
   ],
   DevOps: [
     'Git',

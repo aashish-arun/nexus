@@ -26,7 +26,7 @@ export default function ProjectsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="rounded-xl overflow-hidden bg-gray-900 border border-gray-700 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            className="rounded-xl overflow-hidden bg-gray-900 border border-gray-700 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col"
           >
             {/* Project Image */}
             <div className="relative h-56 sm:h-48 lg:h-56">
@@ -39,7 +39,7 @@ export default function ProjectsSection() {
             </div>
 
             {/* Project Info */}
-            <div className="p-6 flex flex-col justify-between h-full">
+            <div className="p-6 flex flex-col flex-1">
               <div>
                 <h3 className="text-xl font-bold mb-2 text-white">
                   {project.title}
@@ -50,7 +50,7 @@ export default function ProjectsSection() {
                 </p>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.techUsed.map((tech) => (
                     <span
                       key={tech}
@@ -63,9 +63,9 @@ export default function ProjectsSection() {
               </div>
 
               {/* View More Link */}
-              <Link 
+              <Link
                 href={`/projects/${project.slug}`}
-                className="mt-auto text-blue-400 hover:text-blue-500 font-medium transition-colors"
+                className="mt-auto inline-block text-blue-400 hover:text-blue-500 font-medium transition-colors"
               >
                 View More →
               </Link>
